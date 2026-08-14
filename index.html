@@ -1,62 +1,6 @@
-<!DOCTYPE html>
-<html lang="az">
+html lang="az">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Resad Trading</title>
-<style>
-body{margin:0;background:#0b1220;color:white;font-family:Arial,sans-serif}
-.wrap{max-width:700px;margin:auto;padding:20px}
-h1{text-align:center;margin:10px 0 5px}
-.sub{text-align:center;color:#9ca3af;margin-bottom:20px}
-.card{background:#151e2e;border-radius:18px;padding:18px;margin:14px 0}
-.row{display:flex;justify-content:space-between;align-items:center}
-.coin{font-size:22px;font-weight:bold}
-.price{font-size:28px;font-weight:bold;margin:12px 0}
-.signal{text-align:center;padding:14px;border-radius:12px;font-size:22px;font-weight:bold}
-.buy{background:#064e3b;color:#34d399}
-.sell{background:#7f1d1d;color:#fca5a5}
-.wait{background:#374151;color:#facc15}
-.info{display:flex;justify-content:space-between;color:#9ca3af;margin-top:12px}
-.note{text-align:center;color:#9ca3af;font-size:12px;margin-top:20px}
-</style>
-</head>
-<body>
-<div class="wrap">
-<h1>📈 RESAD TRADING</h1>
-<div class="sub">Canlı kripto qiymətləri və siqnal sistemi</div>
-<div id="coins"></div>
-<div class="note">
-⚠️ Bu sistem yalnız texniki siqnal verir. Gəlirə zəmanət vermir.
-</div>
-</div>
-
-<script>
-const symbols=["BTCUSDT","ETHUSDT","SOLUSDT"];
-const data={};
-
-symbols.forEach(s=>{
- data[s]={prices:[],price:0,rsi:50,sma9:0,sma21:0};
-});
-
-function sma(a,n){
- if(a.length<n)return 0;
- return a.slice(-n).reduce((x,y)=>x+y,0)/n;
-}
-
-function rsi(a,n=14){
- if(a.length<n+1)return 50;
- let g=0,l=0;
- for(let i=a.length-n;i<a.length;i++){
-  let d=a[i]-a[i-1];
-  if(d>0)g+=d;else l-=d;
- }
- if(l===0)return 100;
- return 100-(100/(1+g/l));
-}
-
-function signal(d){
- if(d.prices.length<21)return ["GÖZLƏ","wait"];
+<meta charset="UTF-8")return ["GÖZLƏ","wait"];
  if(d.sma9>d.sma21 && d.rsi>=50 && d.rsi<70)
   return ["AL","buy"];
  if(d.sma9<d.sma21 && d.rsi<=50 && d.rsi>30)
